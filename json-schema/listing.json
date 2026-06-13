@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finlight.me/schemas/listing.json",
+  "title": "Listing",
+  "description": "A stock exchange listing for a company",
+  "type": "object",
+  "required": ["ticker", "exchangeCode", "exchangeCountry"],
+  "properties": {
+    "ticker": {
+      "type": "string",
+      "description": "Ticker symbol on this exchange",
+      "examples": ["AAPL", "NVDA"]
+    },
+    "exchangeCode": {
+      "type": "string",
+      "description": "ISO 10383 Market Identifier Code (MIC) for the exchange",
+      "examples": ["XNAS", "XNYS", "XLON"]
+    },
+    "exchangeCountry": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code of the exchange",
+      "examples": ["US", "GB", "DE"]
+    }
+  },
+  "additionalProperties": false
+}

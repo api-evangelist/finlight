@@ -1,0 +1,119 @@
+{
+  "name": "Finlight Financial News API Vocabulary",
+  "description": "Domain vocabulary and terminology for the Finlight financial news and sentiment analysis API",
+  "version": "2.0.0",
+  "url": "https://finlight.me",
+  "terms": [
+    {
+      "term": "Article",
+      "definition": "A financial news article ingested from a publisher's website, enriched with AI-driven sentiment analysis, category classification, and company entity extraction.",
+      "type": "entity"
+    },
+    {
+      "term": "Company",
+      "definition": "A publicly listed company identified and extracted from article content, associated with financial identifiers such as ticker symbol, ISIN, and exchange listing.",
+      "type": "entity"
+    },
+    {
+      "term": "Listing",
+      "definition": "A specific exchange listing for a company, identified by ticker symbol, exchange code (MIC), and country.",
+      "type": "entity"
+    },
+    {
+      "term": "Source",
+      "definition": "A financial news publisher identified by domain name, with metadata indicating whether full content is available and whether it is included in the default source set.",
+      "type": "entity"
+    },
+    {
+      "term": "Sentiment",
+      "definition": "An AI-generated classification of whether article content is positive, negative, or neutral with respect to financial markets or the mentioned companies.",
+      "type": "concept",
+      "values": ["positive", "negative", "neutral"]
+    },
+    {
+      "term": "Confidence",
+      "definition": "A numeric score between 0.0 and 1.0 indicating the model's certainty in its sentiment classification or entity extraction result.",
+      "type": "concept"
+    },
+    {
+      "term": "Ticker",
+      "definition": "An abbreviation used to uniquely identify a publicly traded company on a stock exchange (e.g., AAPL for Apple Inc., NVDA for NVIDIA Corporation).",
+      "type": "concept"
+    },
+    {
+      "term": "ISIN",
+      "definition": "International Securities Identification Number - a 12-character alphanumeric code that uniquely identifies a financial instrument globally (e.g., US0378331005).",
+      "type": "concept"
+    },
+    {
+      "term": "OpenFIGI",
+      "definition": "Open Financial Instrument Global Identifier - a globally unique identifier for financial instruments maintained by Bloomberg.",
+      "type": "concept"
+    },
+    {
+      "term": "DefaultSource",
+      "definition": "A news source included in the standard source set returned when no explicit sources filter is specified in an API request.",
+      "type": "concept"
+    },
+    {
+      "term": "BooleanQuery",
+      "definition": "An advanced query string supporting boolean operators (AND, OR, NOT), field filters (ticker:AAPL, source:reuters.com), and phrase matching (\"exact phrase\").",
+      "type": "concept"
+    },
+    {
+      "term": "WebSocket",
+      "definition": "A real-time streaming protocol connection to Finlight's live article feed, enabling sub-second latency delivery of new financial news.",
+      "type": "concept"
+    },
+    {
+      "term": "Webhook",
+      "definition": "An HTTP callback delivery mechanism where Finlight POSTs article data to a user-configured endpoint when new articles are published, secured with HMAC-SHA256 signatures.",
+      "type": "concept"
+    },
+    {
+      "term": "EntityExtraction",
+      "definition": "The process of identifying and tagging companies mentioned in an article, associating them with structured data including ticker, ISIN, exchange, industry, and sector.",
+      "type": "concept"
+    },
+    {
+      "term": "Category",
+      "definition": "A content classification label assigned to an article indicating its primary topic area within financial news.",
+      "type": "concept",
+      "values": [
+        "markets",
+        "economy",
+        "business",
+        "politics",
+        "geopolitics",
+        "regulation",
+        "technology",
+        "energy",
+        "commodities",
+        "crypto",
+        "health",
+        "climate",
+        "security"
+      ]
+    },
+    {
+      "term": "OptInSource",
+      "definition": "A non-default news source that can be included in results by explicitly specifying it in the optInSources parameter.",
+      "type": "concept"
+    },
+    {
+      "term": "ReplayAttack",
+      "definition": "A security threat where a captured webhook request is maliciously re-sent; mitigated by Finlight's X-Webhook-Timestamp header with a 5-minute tolerance window.",
+      "type": "concept"
+    },
+    {
+      "term": "HMACSha256",
+      "definition": "Hash-based Message Authentication Code using SHA-256 hashing, used to sign webhook payloads so recipients can verify authenticity.",
+      "type": "concept"
+    },
+    {
+      "term": "MCP",
+      "definition": "Model Context Protocol - Finlight provides an MCP server for integrating financial news data directly into AI assistant workflows.",
+      "type": "concept"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "description": "Example response from POST /v2/articles",
+  "response": {
+    "status": "ok",
+    "page": 1,
+    "pageSize": 20,
+    "articles": [
+      {
+        "link": "https://example.com/news/apple-earnings-q4-2024",
+        "title": "Apple Reports Record Q4 Earnings Beating Analyst Estimates",
+        "publishDate": "2024-11-01T17:30:00Z",
+        "source": "example.com",
+        "language": "en",
+        "sentiment": "positive",
+        "confidence": 0.94,
+        "summary": "Apple Inc. reported fourth-quarter earnings that exceeded Wall Street expectations, driven by strong iPhone 16 sales and services revenue growth.",
+        "images": [
+          "https://example.com/images/apple-q4-earnings.jpg"
+        ],
+        "content": "Apple Inc. on Thursday reported quarterly results that beat analyst estimates...",
+        "companies": [
+          {
+            "companyId": 1001,
+            "confidence": 0.99,
+            "country": "US",
+            "exchange": "NASDAQ",
+            "industry": "Consumer Electronics",
+            "sector": "Technology",
+            "name": "Apple Inc.",
+            "ticker": "AAPL",
+            "isin": "US0378331005",
+            "primaryListing": {
+              "ticker": "AAPL",
+              "exchangeCode": "XNAS",
+              "exchangeCountry": "US"
+            },
+            "isins": ["US0378331005"],
+            "otherListings": []
+          }
+        ],
+        "createdAt": "2024-11-01T17:31:05Z",
+        "revisedDate": null,
+        "isUpdate": false,
+        "categories": ["markets", "technology", "business"],
+        "countries": ["US"]
+      }
+    ]
+  }
+}

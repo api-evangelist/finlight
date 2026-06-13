@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finlight.me/schemas/article.json",
+  "title": "Article",
+  "description": "A financial news article enriched with AI-driven sentiment analysis and company entity extraction",
+  "type": "object",
+  "required": ["link", "title", "publishDate", "source", "language"],
+  "properties": {
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "description": "Original URL of the article"
+    },
+    "title": {
+      "type": "string",
+      "description": "Article headline"
+    },
+    "publishDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when the article was published"
+    },
+    "source": {
+      "type": "string",
+      "description": "Domain of the news source"
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2}$",
+      "description": "ISO 639-1 language code",
+      "examples": ["en", "de", "fr", "es"]
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral"],
+      "description": "AI-generated sentiment classification for the article"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for the sentiment classification (0.0 to 1.0)"
+    },
+    "summary": {
+      "type": "string",
+      "description": "AI-generated brief summary of the article"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URLs of images associated with the article"
+    },
+    "content": {
+      "type": "string",
+      "description": "Full article content text"
+    },
+    "companies": {
+      "type": "array",
+      "items": {
+        "$ref": "company.json"
+      },
+      "description": "Companies mentioned and extracted from the article"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when Finlight ingested the article"
+    },
+    "revisedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the article was last revised by the publisher"
+    },
+    "isUpdate": {
+      "type": "boolean",
+      "description": "Whether this article is an update to a previously published piece"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "article-category.json"
+      },
+      "description": "Content categories assigned to the article"
+    },
+    "countries": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}$"
+      },
+      "description": "ISO 3166-1 alpha-2 country codes relevant to the article"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,137 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "finlight": "https://finlight.me/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "Article": "schema:Article",
+    "headline": "schema:headline",
+    "datePublished": "schema:datePublished",
+    "dateCreated": "schema:dateCreated",
+    "dateModified": "schema:dateModified",
+    "inLanguage": "schema:inLanguage",
+    "url": "schema:url",
+    "image": "schema:image",
+    "articleBody": "schema:articleBody",
+    "description": "schema:description",
+    "publisher": "schema:publisher",
+    "Organization": "schema:Organization",
+    "name": "schema:name",
+    "sentiment": {
+      "@id": "finlight:sentiment",
+      "@type": "@vocab"
+    },
+    "sentimentPositive": "finlight:sentimentPositive",
+    "sentimentNegative": "finlight:sentimentNegative",
+    "sentimentNeutral": "finlight:sentimentNeutral",
+    "confidence": {
+      "@id": "finlight:confidence",
+      "@type": "xsd:decimal"
+    },
+    "ticker": "finlight:ticker",
+    "isin": "finlight:isin",
+    "exchangeCode": "finlight:exchangeCode",
+    "companyId": "finlight:companyId",
+    "isUpdate": {
+      "@id": "finlight:isUpdate",
+      "@type": "xsd:boolean"
+    },
+    "isDefaultSource": {
+      "@id": "finlight:isDefaultSource",
+      "@type": "xsd:boolean"
+    },
+    "isContentAvailable": {
+      "@id": "finlight:isContentAvailable",
+      "@type": "xsd:boolean"
+    },
+    "category": "finlight:category",
+    "companies": "finlight:companies",
+    "primaryListing": "finlight:primaryListing",
+    "otherListings": "finlight:otherListings",
+    "domain": "finlight:domain"
+  },
+  "@graph": [
+    {
+      "@id": "https://finlight.me",
+      "@type": "schema:WebAPI",
+      "name": "Finlight Financial News API",
+      "description": "Real-time financial news API aggregating market-moving news with AI-driven sentiment analysis, entity extraction, and sub-second latency streaming.",
+      "url": "https://finlight.me",
+      "documentation": "https://docs.finlight.me/v2/",
+      "provider": {
+        "@type": "schema:Organization",
+        "name": "Finlight",
+        "url": "https://finlight.me",
+        "contactPoint": {
+          "@type": "schema:ContactPoint",
+          "email": "info@finlight.me",
+          "contactType": "customer support"
+        }
+      },
+      "termsOfService": "https://finlight.me",
+      "offers": {
+        "@type": "schema:Offer",
+        "url": "https://finlight.me/pricing"
+      }
+    },
+    {
+      "@id": "finlight:Article",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Article",
+      "rdfs:comment": "A financial news article enriched with sentiment analysis and company entity extraction",
+      "rdfs:subClassOf": "schema:Article"
+    },
+    {
+      "@id": "finlight:Company",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Company",
+      "rdfs:comment": "A publicly listed company identified in financial news content",
+      "rdfs:subClassOf": "schema:Organization"
+    },
+    {
+      "@id": "finlight:Listing",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Listing",
+      "rdfs:comment": "A stock exchange listing for a company on a specific exchange"
+    },
+    {
+      "@id": "finlight:Source",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Source",
+      "rdfs:comment": "A financial news publisher available in the Finlight platform",
+      "rdfs:subClassOf": "schema:NewsMediaOrganization"
+    },
+    {
+      "@id": "finlight:sentiment",
+      "@type": "rdf:Property",
+      "rdfs:label": "sentiment",
+      "rdfs:comment": "AI-generated sentiment classification (positive, negative, neutral)",
+      "rdfs:domain": "finlight:Article",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "@id": "finlight:confidence",
+      "@type": "rdf:Property",
+      "rdfs:label": "confidence",
+      "rdfs:comment": "Confidence score for sentiment classification or entity extraction (0.0 to 1.0)",
+      "rdfs:range": "xsd:decimal"
+    },
+    {
+      "@id": "finlight:ticker",
+      "@type": "rdf:Property",
+      "rdfs:label": "ticker",
+      "rdfs:comment": "Stock ticker symbol identifying a publicly traded company",
+      "rdfs:domain": "finlight:Company",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "@id": "finlight:isin",
+      "@type": "rdf:Property",
+      "rdfs:label": "isin",
+      "rdfs:comment": "International Securities Identification Number",
+      "rdfs:domain": "finlight:Company",
+      "rdfs:range": "xsd:string"
+    }
+  ]
+}

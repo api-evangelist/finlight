@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finlight.me/schemas/article-category.json",
+  "title": "ArticleCategory",
+  "description": "Content category for financial news articles",
+  "type": "string",
+  "enum": [
+    "markets",
+    "economy",
+    "business",
+    "politics",
+    "geopolitics",
+    "regulation",
+    "technology",
+    "energy",
+    "commodities",
+    "crypto",
+    "health",
+    "climate",
+    "security"
+  ]
+}

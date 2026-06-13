@@ -1,0 +1,35 @@
+{
+  "description": "Example response from GET /v2/sources",
+  "response": [
+    {
+      "domain": "reuters.com",
+      "isContentAvailable": true,
+      "isDefaultSource": true
+    },
+    {
+      "domain": "bloomberg.com",
+      "isContentAvailable": true,
+      "isDefaultSource": true
+    },
+    {
+      "domain": "wsj.com",
+      "isContentAvailable": false,
+      "isDefaultSource": true
+    },
+    {
+      "domain": "ft.com",
+      "isContentAvailable": false,
+      "isDefaultSource": true
+    },
+    {
+      "domain": "cnbc.com",
+      "isContentAvailable": true,
+      "isDefaultSource": true
+    },
+    {
+      "domain": "seekingalpha.com",
+      "isContentAvailable": true,
+      "isDefaultSource": false
+    }
+  ]
+}

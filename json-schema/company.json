@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finlight.me/schemas/company.json",
+  "title": "Company",
+  "description": "A publicly listed company entity extracted and tagged from a financial news article",
+  "type": "object",
+  "required": ["companyId", "name", "ticker"],
+  "properties": {
+    "companyId": {
+      "type": "integer",
+      "description": "Finlight internal company identifier"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for entity extraction (0.0 to 1.0)"
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code of the company headquarters"
+    },
+    "exchange": {
+      "type": "string",
+      "description": "Primary exchange where the company is listed",
+      "examples": ["NASDAQ", "NYSE", "LSE"]
+    },
+    "industry": {
+      "type": "string",
+      "description": "Industry classification"
+    },
+    "sector": {
+      "type": "string",
+      "description": "Sector classification",
+      "examples": ["Technology", "Healthcare", "Financials"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Full company name",
+      "examples": ["Apple Inc.", "NVIDIA Corporation"]
+    },
+    "ticker": {
+      "type": "string",
+      "description": "Primary stock ticker symbol",
+      "examples": ["AAPL", "NVDA", "MSFT"]
+    },
+    "isin": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$",
+      "description": "International Securities Identification Number",
+      "examples": ["US0378331005"]
+    },
+    "openfigi": {
+      "type": "string",
+      "description": "OpenFIGI financial instrument global identifier"
+    },
+    "primaryListing": {
+      "$ref": "listing.json"
+    },
+    "isins": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "All ISIN identifiers associated with the company across listings"
+    },
+    "otherListings": {
+      "type": "array",
+      "items": {
+        "$ref": "listing.json"
+      },
+      "description": "Secondary exchange listings for the company"
+    }
+  },
+  "additionalProperties": false
+}

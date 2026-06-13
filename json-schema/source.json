@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finlight.me/schemas/source.json",
+  "title": "Source",
+  "description": "A financial news source available in the Finlight platform",
+  "type": "object",
+  "required": ["domain", "isContentAvailable", "isDefaultSource"],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Domain name of the news source",
+      "examples": ["reuters.com", "bloomberg.com", "wsj.com"]
+    },
+    "isContentAvailable": {
+      "type": "boolean",
+      "description": "Whether full article content can be retrieved from this source"
+    },
+    "isDefaultSource": {
+      "type": "boolean",
+      "description": "Whether this source is included in the default source set when no sources filter is specified"
+    }
+  },
+  "additionalProperties": false
+}

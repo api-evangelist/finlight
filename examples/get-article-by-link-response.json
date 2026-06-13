@@ -1,0 +1,42 @@
+{
+  "description": "Example response from GET /v2/articles/by-link?link=https://example.com/news/nvda-ai-chips&includeContent=true&includeEntities=true",
+  "response": {
+    "link": "https://example.com/news/nvda-ai-chips",
+    "title": "NVIDIA's AI Chip Demand Surge Drives Data Center Revenue to Record High",
+    "publishDate": "2024-08-28T14:00:00Z",
+    "source": "example.com",
+    "language": "en",
+    "sentiment": "positive",
+    "confidence": 0.97,
+    "summary": "NVIDIA reported data center revenue surged 154% year-over-year as demand for H100 and A100 GPUs for AI workloads continues to accelerate.",
+    "images": [
+      "https://example.com/images/nvda-h100.jpg"
+    ],
+    "content": "NVIDIA Corporation on Wednesday reported fiscal second-quarter results...",
+    "companies": [
+      {
+        "companyId": 1002,
+        "confidence": 0.99,
+        "country": "US",
+        "exchange": "NASDAQ",
+        "industry": "Semiconductors",
+        "sector": "Technology",
+        "name": "NVIDIA Corporation",
+        "ticker": "NVDA",
+        "isin": "US67066G1040",
+        "primaryListing": {
+          "ticker": "NVDA",
+          "exchangeCode": "XNAS",
+          "exchangeCountry": "US"
+        },
+        "isins": ["US67066G1040"],
+        "otherListings": []
+      }
+    ],
+    "createdAt": "2024-08-28T14:00:45Z",
+    "revisedDate": "2024-08-28T16:20:00Z",
+    "isUpdate": false,
+    "categories": ["markets", "technology"],
+    "countries": ["US"]
+  }
+}

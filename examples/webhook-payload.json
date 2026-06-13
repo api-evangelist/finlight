@@ -1,0 +1,26 @@
+{
+  "description": "Example webhook POST payload delivered by Finlight when a new article is published. Verified using HMAC-SHA256 signature in X-Webhook-Signature header.",
+  "headers": {
+    "X-Webhook-Signature": "sha256=<hmac-sha256-hex-digest>",
+    "X-Webhook-Timestamp": "2024-11-01T17:30:00Z",
+    "Content-Type": "application/json"
+  },
+  "payload": {
+    "link": "https://example.com/news/fed-rate-decision",
+    "title": "Federal Reserve Holds Rates Steady, Signals Caution on Future Cuts",
+    "publishDate": "2024-11-01T18:00:00Z",
+    "source": "example.com",
+    "language": "en",
+    "sentiment": "neutral",
+    "confidence": 0.88,
+    "summary": "The Federal Reserve held interest rates at 5.25%-5.50% and indicated it needs more confidence that inflation is moving toward its 2% target before cutting rates.",
+    "images": [],
+    "content": "The Federal Reserve on Friday kept its benchmark interest rate unchanged...",
+    "companies": [],
+    "createdAt": "2024-11-01T18:00:12Z",
+    "revisedDate": null,
+    "isUpdate": false,
+    "categories": ["economy", "markets"],
+    "countries": ["US"]
+  }
+}
