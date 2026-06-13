@@ -1,0 +1,89 @@
+name: Finlight
+description: >
+  Finlight is a real-time financial news API that aggregates market-moving news,
+  earnings reports, analyst upgrades, and corporate announcements for equities,
+  currencies, and commodities. The platform delivers AI-driven sentiment analysis,
+  entity extraction, and sub-second latency streaming for developers and enterprises
+  building financial applications.
+image: https://finlight.me/favicon.ico
+tags:
+  - Financial News
+  - Sentiment Analysis
+  - Market Data
+  - Equities
+  - Currencies
+  - Commodities
+  - Real-Time
+  - Webhooks
+  - WebSocket
+created: '2026-06-13'
+modified: '2026-06-13'
+url: https://raw.githubusercontent.com/api-evangelist/finlight/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - name: Finlight Financial News API
+    description: >
+      REST API for retrieving real-time financial news articles enriched with
+      sentiment analysis, entity extraction, and company tagging. Supports
+      advanced boolean query building with filtering by ticker, source, country,
+      language, and date range. Returns structured JSON with article metadata,
+      sentiment scores, confidence levels, and associated company entities.
+    image: https://finlight.me/favicon.ico
+    humanURL: https://finlight.me
+    baseURL: https://api.finlight.me
+    tags:
+      - Financial News
+      - REST API
+      - Sentiment Analysis
+      - Entity Extraction
+    properties:
+      - type: Documentation
+        url: https://docs.finlight.me/v2/
+      - type: OpenAPI
+        url: https://docs.finlight.me/v2/openapi.json
+      - type: Signup
+        url: https://app.finlight.me
+      - type: Pricing
+        url: https://finlight.me/pricing
+      - type: SDKs
+        url: https://docs.finlight.me/v2/
+      - type: x-npm
+        url: https://www.npmjs.com/package/finlight-client
+      - type: x-pypi
+        url: https://pypi.org/project/finlight-client/
+    contact:
+      - FN: Finlight Support
+        email: info@finlight.me
+        x-twitter: finlight_me
+        x-discord: https://discord.gg/XUs9JYZd24
+    x-common:
+      - type: x-websocket
+        url: https://docs.finlight.me/v2/websocket/
+      - type: x-webhooks
+        url: https://docs.finlight.me/v2/webhooks/
+      - type: x-mcp-server
+        url: https://docs.finlight.me/v2/mcp/
+      - type: x-status
+        url: https://finlight.me
+common:
+  - type: Documentation
+    url: https://docs.finlight.me/v2/
+  - type: Pricing
+    url: https://finlight.me/pricing
+  - type: Signup
+    url: https://app.finlight.me
+  - type: About
+    url: https://finlight.me/about
+  - type: x-twitter
+    url: https://twitter.com/finlight_me
+  - type: x-discord
+    url: https://discord.gg/XUs9JYZd24
+  - type: x-npm
+    url: https://www.npmjs.com/package/finlight-client
+  - type: x-pypi
+    url: https://pypi.org/project/finlight-client/
+  - type: Contact
+    url: mailto:info@finlight.me
+maintainers:
+  - FN: API Evangelist
+    email: kin@apievangelist.com

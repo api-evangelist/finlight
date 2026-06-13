@@ -1,0 +1,93 @@
+finops:
+  description: >
+    Financial operations summary for the Finlight API. Covers cost structure,
+    billable units, optimization strategies, and budget guidance for teams
+    integrating financial news data into applications.
+  reference: https://finlight.me/pricing
+  currency: USD
+  billing: monthly
+  tax_note: All prices exclude applicable taxes
+
+  plans_summary:
+    - name: Launchpad
+      monthly_cost: 0
+      cost_per_1k_requests: 0
+      requests_included: 5000
+      best_for: Individual developers, proof of concept, low-volume exploration
+
+    - name: Pro Light
+      monthly_cost: 29
+      cost_per_1k_requests: 2.90
+      requests_included: 10000
+      best_for: Small teams, startups, basic real-time news integration
+
+    - name: Pro Standard
+      monthly_cost: 99
+      cost_per_1k_requests: 1.98
+      requests_included: 50000
+      best_for: Commercial applications, trading platforms, sentiment-driven workflows
+
+    - name: Pro Scale
+      monthly_cost: 249
+      cost_per_1k_requests: 1.66
+      requests_included: 150000
+      best_for: High-frequency data consumers, large-scale financial analytics
+
+    - name: Enterprise
+      monthly_cost: custom
+      cost_per_1k_requests: negotiated
+      requests_included: unlimited
+      best_for: Fortune 500 companies, on-premise deployments, custom NLP needs
+
+  billable_units:
+    - unit: REST API request
+      description: Each call to POST /v2/articles or GET /v2/articles/by-link or GET /v2/sources counts as one request
+    - unit: Webhook delivery
+      description: Each webhook payload delivered to a registered endpoint counts against the monthly delivery quota
+    - unit: WebSocket dispatch
+      description: Each real-time article event streamed over a WebSocket connection counts against the monthly dispatch quota
+
+  cost_optimization:
+    - strategy: Use WebSocket streaming instead of REST polling
+      impact: >
+        WebSocket connections receive article events as they publish, eliminating
+        the need for repeated polling requests. This can significantly reduce REST
+        API request consumption for real-time use cases.
+    - strategy: Use webhooks for event-driven workflows
+      impact: >
+        Webhook deliveries are separate from REST request quotas. Routing news
+        events to downstream systems via webhooks avoids redundant API calls.
+    - strategy: Apply precise query filters
+      impact: >
+        Using ticker, source, country, and language filters on POST /v2/articles
+        reduces result set size, enabling smaller pageSize values and fewer
+        follow-up requests for irrelevant content.
+    - strategy: Cache source lists
+      impact: >
+        The GET /v2/sources endpoint returns a relatively static dataset.
+        Caching this response locally avoids repeated requests against the monthly quota.
+    - strategy: Start on Launchpad for development
+      impact: >
+        The free tier provides 5,000 requests per month for development and testing.
+        Upgrade to a paid plan only when production traffic requires it.
+    - strategy: Monitor monthly consumption via dashboard
+      impact: >
+        The Finlight dashboard provides usage visibility. Setting up internal
+        alerts before hitting plan thresholds avoids unexpected service interruptions.
+
+  upgrade_triggers:
+    - condition: Requiring sentiment analysis
+      minimum_plan: Pro Standard
+    - condition: Needing real-time news without delay
+      minimum_plan: Pro Light
+    - condition: Historical data queries
+      minimum_plan: Pro Standard
+    - condition: More than 1 webhook registration
+      minimum_plan: Pro Standard
+    - condition: More than 50,000 requests per month
+      minimum_plan: Pro Scale
+    - condition: Custom NLP or on-premise deployment
+      minimum_plan: Enterprise
+
+  contact_sales: info@finlight.me
+  pricing_page: https://finlight.me/pricing

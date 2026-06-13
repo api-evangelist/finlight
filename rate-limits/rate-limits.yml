@@ -1,0 +1,66 @@
+rate_limits:
+  description: >
+    Finlight enforces rate limits at both the per-minute and per-month levels.
+    All plans share a per-minute cap of 100 requests per API key. Monthly
+    request allocations vary by plan. Exceeding either limit results in a
+    429 Too Many Requests HTTP response. Rate limits apply to REST API calls;
+    WebSocket dispatches and webhook deliveries are tracked separately per plan.
+  reference: https://docs.finlight.me/v2/
+  authentication: API key via X-API-KEY request header
+
+  global:
+    - limit: 100
+      period: per_minute
+      scope: per_api_key
+      enforcement: HTTP 429 Too Many Requests
+      applies_to: REST API
+
+  by_plan:
+    - plan: Launchpad
+      monthly_requests: 5000
+      rate_limit_per_minute: 100
+      websocket_dispatches: 0
+      webhook_deliveries: 0
+
+    - plan: Pro Light
+      monthly_requests: 10000
+      rate_limit_per_minute: 100
+      websocket_dispatches: 5000
+      webhook_deliveries: 5000
+
+    - plan: Pro Standard
+      monthly_requests: 50000
+      rate_limit_per_minute: 100
+      websocket_dispatches: 25000
+      webhook_deliveries: 25000
+
+    - plan: Pro Scale
+      monthly_requests: 150000
+      rate_limit_per_minute: 100
+      websocket_dispatches: unlimited
+      webhook_deliveries: unlimited
+
+    - plan: Enterprise
+      monthly_requests: unlimited
+      rate_limit_per_minute: custom
+      websocket_dispatches: unlimited
+      webhook_deliveries: unlimited
+
+  error_handling:
+    - status_code: 429
+      message: Too Many Requests
+      description: >
+        Returned when the per-minute or monthly request limit is exceeded.
+        Clients should implement exponential backoff and respect Retry-After
+        response headers when present.
+
+  headers:
+    - name: X-API-KEY
+      description: API key for authentication, required on all requests
+      type: request_header
+
+  notes:
+    - Pagination is available on the POST /v2/articles endpoint using pageSize and page parameters
+    - WebSocket connections provide real-time streaming and may reduce REST polling needs
+    - Webhook deliveries count separately from REST request quotas
+    - The free Launchpad plan applies a 12-hour news delay but the same 100 req/min cap

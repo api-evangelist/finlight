@@ -1,0 +1,130 @@
+plans:
+  - name: Launchpad
+    description: >
+      Free tier for individual developers exploring the Finlight API. Provides
+      access to financial news with a 12-hour delay. Excludes advanced features
+      such as webhooks, entity extraction, sentiment analysis, and WebSocket streaming.
+    price: 0
+    currency: USD
+    billing_period: monthly
+    url: https://finlight.me/pricing
+    features:
+      - 5,000 REST API requests per month
+      - Real-time news with 12-hour delay
+      - Basic article search and retrieval
+      - Discord community support
+    limits:
+      requests_per_month: 5000
+      webhooks: 0
+      webhook_deliveries: 0
+      websocket_dispatches: 0
+    excludes:
+      - Webhooks
+      - Ticker and entity extraction
+      - Sentiment analysis
+      - WebSocket streaming
+      - Historical data
+      - Email support
+
+  - name: Pro Light
+    description: >
+      Entry-level paid plan for developers and small teams requiring full
+      real-time news access, ticker/entity data, and basic webhook and WebSocket
+      capabilities. Includes email support.
+    price: 29
+    currency: USD
+    billing_period: monthly
+    url: https://finlight.me/pricing
+    features:
+      - 10,000 REST API requests per month
+      - Full real-time news access (no delay)
+      - Ticker and entity extraction
+      - 1 webhook registration
+      - 5,000 webhook deliveries per month
+      - 5,000 WebSocket dispatches per month
+      - Email support
+    limits:
+      requests_per_month: 10000
+      webhooks: 1
+      webhook_deliveries: 5000
+      websocket_dispatches: 5000
+    excludes:
+      - Sentiment analysis
+      - Historical data
+
+  - name: Pro Standard
+    description: >
+      Popular mid-tier plan for growing teams and commercial applications.
+      Includes sentiment analysis, historical data access, expanded webhook
+      and WebSocket allocations, and priority email support.
+    price: 99
+    currency: USD
+    billing_period: monthly
+    popular: true
+    url: https://finlight.me/pricing
+    features:
+      - 50,000 REST API requests per month
+      - Full real-time news access
+      - Sentiment analysis with confidence scores
+      - Ticker and entity extraction
+      - Historical data access
+      - 2 webhook registrations
+      - 25,000 webhook deliveries per month
+      - 25,000 WebSocket dispatches per month
+      - Email and priority support
+    limits:
+      requests_per_month: 50000
+      webhooks: 2
+      webhook_deliveries: 25000
+      websocket_dispatches: 25000
+
+  - name: Pro Scale
+    description: >
+      High-volume plan for production applications and data-intensive workflows.
+      Provides unlimited webhooks and WebSocket dispatches, sentiment analysis,
+      historical data, and a dedicated account manager.
+    price: 249
+    currency: USD
+    billing_period: monthly
+    url: https://finlight.me/pricing
+    features:
+      - 150,000 REST API requests per month
+      - Full real-time news access
+      - Sentiment analysis with confidence scores
+      - Ticker and entity extraction
+      - Historical data access
+      - Unlimited webhook registrations
+      - Unlimited webhook deliveries
+      - Unlimited WebSocket dispatches
+      - Dedicated account manager
+      - Email and priority support
+    limits:
+      requests_per_month: 150000
+      webhooks: unlimited
+      webhook_deliveries: unlimited
+      websocket_dispatches: unlimited
+
+  - name: Enterprise
+    description: >
+      Custom enterprise plan for Fortune 500 companies and large-scale deployments
+      requiring unlimited API access, custom NLP/AI integrations, on-premise
+      deployment, SLAs, and dedicated support. Pricing determined by usage and
+      requirements. Contact sales for a quote.
+    price: custom
+    currency: USD
+    billing_period: monthly
+    url: https://finlight.me/pricing
+    contact: info@finlight.me
+    features:
+      - Unlimited REST API requests
+      - Unlimited webhooks and WebSocket dispatches
+      - Custom NLP and AI integrations
+      - On-premise deployment options
+      - Custom SLAs
+      - Dedicated support team
+      - White-label options available
+    limits:
+      requests_per_month: unlimited
+      webhooks: unlimited
+      webhook_deliveries: unlimited
+      websocket_dispatches: unlimited
