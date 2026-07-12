@@ -66,6 +66,10 @@ apis:
       - type: x-status
         url: https://finlight.me
 common:
+  - type: DomainSecurity
+    url: security/finlight-domain-security.yml
+  - type: Authentication
+    url: authentication/finlight-authentication.yml
   - type: Documentation
     url: https://docs.finlight.me/v2/
   - type: Pricing
@@ -84,6 +88,8 @@ common:
     url: https://pypi.org/project/finlight-client/
   - type: Contact
     url: mailto:info@finlight.me
+  - url: https://finlight.me/blog/feed.xml
+    type: Blog
 maintainers:
   - FN: API Evangelist
     email: kin@apievangelist.com
