@@ -66,6 +66,8 @@ apis:
       - type: x-status
         url: https://finlight.me
 common:
+  - type: AgenticAccess
+    url: agentic-access/finlight-agentic-access.yml
   - type: DomainSecurity
     url: security/finlight-domain-security.yml
   - type: Authentication
