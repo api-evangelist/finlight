@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Finlight Financial News Articles Sources API
+  description: Real-time financial news API aggregating market-moving news, earnings reports, analyst upgrades, and corporate announcements for equities, currencies, and commodities. Delivers AI-driven sentiment analysis, entity extraction, and sub-second latency streaming.
+  version: 2.0.0
+  contact:
+    name: Finlight Support
+    email: info@finlight.me
+    url: https://finlight.me
+  license:
+    name: Proprietary
+    url: https://finlight.me
+servers:
+- url: https://api.finlight.me
+  description: Finlight Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Sources
+  description: Available news sources and their configuration
+paths:
+  /v2/sources:
+    get:
+      summary: List Available News Sources
+      description: Retrieve all available news sources with metadata including domain, content availability, and whether the source is included in the default source set.
+      operationId: getSources
+      tags:
+      - Sources
+      responses:
+        '200':
+          description: Array of available news sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Source'
+        '401':
+          description: Unauthorized - invalid or missing API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    Source:
+      type: object
+      description: A financial news source available in the Finlight platform
+      required:
+      - domain
+      - isContentAvailable
+      - isDefaultSource
+      properties:
+        domain:
+          type: string
+          description: Domain name of the news source
+          example: reuters.com
+        isContentAvailable:
+          type: boolean
+          description: Whether full article content can be retrieved from this source
+        isDefaultSource:
+          type: boolean
+          description: Whether this source is included in the default source set when no sources are specified
+    ErrorResponse:
+      type: object
+      description: API error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error description
+        error:
+          type: string
+          description: Error type or code
+        statusCode:
+          type: integer
+          description: HTTP status code
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: API key obtained from https://app.finlight.me
+externalDocs:
+  description: Finlight API Documentation
+  url: https://docs.finlight.me/v2/
