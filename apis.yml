@@ -5,6 +5,19 @@ description: >
   currencies, and commodities. The platform delivers AI-driven sentiment analysis,
   entity extraction, and sub-second latency streaming for developers and enterprises
   building financial applications.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://finlight.me/favicon.ico
 tags:
   - Financial News
@@ -21,50 +34,50 @@ modified: '2026-06-13'
 url: https://raw.githubusercontent.com/api-evangelist/finlight/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - name: Finlight Financial News API
-    description: >
-      REST API for retrieving real-time financial news articles enriched with
-      sentiment analysis, entity extraction, and company tagging. Supports
-      advanced boolean query building with filtering by ticker, source, country,
-      language, and date range. Returns structured JSON with article metadata,
-      sentiment scores, confidence levels, and associated company entities.
-    image: https://finlight.me/favicon.ico
-    humanURL: https://finlight.me
-    baseURL: https://api.finlight.me
-    tags:
-      - Financial News
-      - REST API
-      - Sentiment Analysis
-      - Entity Extraction
-    properties:
-      - type: Documentation
-        url: https://docs.finlight.me/v2/
-      - type: OpenAPI
-        url: https://docs.finlight.me/v2/openapi.json
-      - type: Signup
-        url: https://app.finlight.me
-      - type: Pricing
-        url: https://finlight.me/pricing
-      - type: SDKs
-        url: https://docs.finlight.me/v2/
-      - type: x-npm
-        url: https://www.npmjs.com/package/finlight-client
-      - type: x-pypi
-        url: https://pypi.org/project/finlight-client/
-    contact:
-      - FN: Finlight Support
-        email: info@finlight.me
-        x-twitter: finlight_me
-        x-discord: https://discord.gg/XUs9JYZd24
-    x-common:
-      - type: x-websocket
-        url: https://docs.finlight.me/v2/websocket/
-      - type: x-webhooks
-        url: https://docs.finlight.me/v2/webhooks/
-      - type: x-mcp-server
-        url: https://docs.finlight.me/v2/mcp/
-      - type: x-status
-        url: https://finlight.me
+- aid: finlight:finlight-articles-api
+  name: Finlight Articles API
+  description: Financial news articles with sentiment analysis and entity extraction
+  humanURL: https://finlight.me
+  baseURL: https://api.finlight.me
+  tags:
+  - Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/finlight-articles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finlight.me/v2/
+  - type: Signup
+    url: https://app.finlight.me
+  - type: Pricing
+    url: https://finlight.me/pricing
+  - type: SDKs
+    url: https://docs.finlight.me/v2/
+  - type: x-npm
+    url: https://www.npmjs.com/package/finlight-client
+  - type: x-pypi
+    url: https://pypi.org/project/finlight-client/
+- aid: finlight:finlight-sources-api
+  name: Finlight Sources API
+  description: Available news sources and their configuration
+  humanURL: https://finlight.me
+  baseURL: https://api.finlight.me
+  tags:
+  - Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/finlight-sources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finlight.me/v2/
+  - type: Signup
+    url: https://app.finlight.me
+  - type: Pricing
+    url: https://finlight.me/pricing
+  - type: SDKs
+    url: https://docs.finlight.me/v2/
+  - type: x-npm
+    url: https://www.npmjs.com/package/finlight-client
+  - type: x-pypi
+    url: https://pypi.org/project/finlight-client/
 common:
   - type: AgenticAccess
     url: agentic-access/finlight-agentic-access.yml
