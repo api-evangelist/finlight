@@ -1,0 +1,16 @@
+{
+  "provider": "finlight",
+  "sources": [
+    "finlight-articles-api-openapi.yml",
+    "finlight-sources-api-openapi.yml"
+  ],
+  "outputs": [
+    "finlight-articles-api-openapi.yml",
+    "finlight-sources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
