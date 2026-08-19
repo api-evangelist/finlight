@@ -1,0 +1,594 @@
+{
+  "item": [
+    {
+      "id": "7763a753-fab5-4422-8bd7-8f165302713d",
+      "name": "Articles",
+      "description": {
+        "content": "Financial news articles with sentiment analysis and entity extraction",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07f245ef-991e-4898-b846-61c160a29c84",
+          "name": "Search Financial News Articles",
+          "request": {
+            "name": "Search Financial News Articles",
+            "description": {
+              "content": "Retrieve financial news articles with advanced filtering by tickers, sources, dates, countries, categories, and custom queries. Supports boolean query language with field filters. Returns paginated results with sentiment scores, entity tags, and article metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"sources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tickers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"optInSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"includeContent\": false,\n  \"includeEntities\": false,\n  \"excludeEmptyContent\": false,\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"language\": \"en\",\n  \"orderBy\": \"publishDate\",\n  \"order\": \"DESC\",\n  \"pageSize\": 20,\n  \"page\": 1,\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67e2651d-75b6-414d-b117-69bd9d7ea3ae",
+              "name": "Paginated list of financial news articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tickers\": [\n    \"AAPL\",\n    \"NVDA\"\n  ],\n  \"from\": \"2024-01-01\",\n  \"pageSize\": 20,\n  \"includeContent\": true,\n  \"includeEntities\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"page\": 9176,\n  \"pageSize\": 4375,\n  \"articles\": [\n    {\n      \"link\": \"https://eeCDxPMh.otfofc.-6vtb.iGd17Vff5ivQ\",\n      \"title\": \"string\",\n      \"publishDate\": \"1951-12-24T10:50:22.189Z\",\n      \"source\": \"string\",\n      \"language\": \"en\",\n      \"sentiment\": \"positive\",\n      \"confidence\": 0.2635306669592492,\n      \"summary\": \"string\",\n      \"images\": [\n        \"http://elqsUNrZJSTUMaGWWGjksjaKmGGnhQ.keengcHBtiMMrKhKKIrcm7Jy1Vrh5saX40tHhkajkKNN-\",\n        \"http://SPRSQUqKDRxeTVxoa.iuT8leQ6p\"\n      ],\n      \"content\": \"string\",\n      \"companies\": [\n        {\n          \"companyId\": 724,\n          \"name\": \"string\",\n          \"ticker\": \"AAPL\",\n          \"confidence\": 0.5678774135633814,\n          \"country\": \"string\",\n          \"exchange\": \"string\",\n          \"industry\": \"string\",\n          \"sector\": \"string\",\n          \"isin\": \"US0378331005\",\n          \"openfigi\": \"string\",\n          \"primaryListing\": {\n            \"ticker\": \"AAPL\",\n            \"exchangeCode\": \"XNAS\",\n            \"exchangeCountry\": \"US\"\n          },\n          \"isins\": [\n            \"string\",\n            \"string\"\n          ],\n          \"otherListings\": [\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"companyId\": 7218,\n          \"name\": \"string\",\n          \"ticker\": \"AAPL\",\n          \"confidence\": 0.5864647110442631,\n          \"country\": \"string\",\n          \"exchange\": \"string\",\n          \"industry\": \"string\",\n          \"sector\": \"string\",\n          \"isin\": \"US0378331005\",\n          \"openfigi\": \"string\",\n          \"primaryListing\": {\n            \"ticker\": \"AAPL\",\n            \"exchangeCode\": \"XNAS\",\n            \"exchangeCountry\": \"US\"\n          },\n          \"isins\": [\n            \"string\",\n            \"string\"\n          ],\n          \"otherListings\": [\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"createdAt\": \"1991-11-30T04:10:02.885Z\",\n      \"revisedDate\": \"2007-05-28T22:52:27.070Z\",\n      \"isUpdate\": false,\n      \"categories\": [\n        \"health\",\n        \"economy\"\n      ],\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"link\": \"https://NMxiUyiyCsmKr.lazdqWHPRvLYD1Z0.sJaOSlYlTv8zJ2X1Wn-e7LKh4meqZQog9VgorBmhn+fQ2OTa,Jph8akxlB\",\n      \"title\": \"string\",\n      \"publishDate\": \"2004-02-14T23:42:26.030Z\",\n      \"source\": \"string\",\n      \"language\": \"en\",\n      \"sentiment\": \"negative\",\n      \"confidence\": 0.4134321001307032,\n      \"summary\": \"string\",\n      \"images\": [\n        \"http://IbQKxfzImBXcVtIPj.tvwcP8KD.fgGlQ8EgK4KWVjHKybZ1tur8X,uLs9ZSlNH4u9BFUbR+MND0qXBVB5\",\n        \"https://nlecr.qkvggb2Msx.PedW6ZkD9+W9XnN6nZluA1v7DLk97HH\"\n      ],\n      \"content\": \"string\",\n      \"companies\": [\n        {\n          \"companyId\": 2891,\n          \"name\": \"string\",\n          \"ticker\": \"AAPL\",\n          \"confidence\": 0.01487248878254821,\n          \"country\": \"string\",\n          \"exchange\": \"string\",\n          \"industry\": \"string\",\n          \"sector\": \"string\",\n          \"isin\": \"US0378331005\",\n          \"openfigi\": \"string\",\n          \"primaryListing\": {\n            \"ticker\": \"AAPL\",\n            \"exchangeCode\": \"XNAS\",\n            \"exchangeCountry\": \"US\"\n          },\n          \"isins\": [\n            \"string\",\n            \"string\"\n          ],\n          \"otherListings\": [\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"companyId\": 6598,\n          \"name\": \"string\",\n          \"ticker\": \"AAPL\",\n          \"confidence\": 0.23254266457046147,\n          \"country\": \"string\",\n          \"exchange\": \"string\",\n          \"industry\": \"string\",\n          \"sector\": \"string\",\n          \"isin\": \"US0378331005\",\n          \"openfigi\": \"string\",\n          \"primaryListing\": {\n            \"ticker\": \"AAPL\",\n            \"exchangeCode\": \"XNAS\",\n            \"exchangeCountry\": \"US\"\n          },\n          \"isins\": [\n            \"string\",\n            \"string\"\n          ],\n          \"otherListings\": [\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ticker\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCode\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exchangeCountry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"createdAt\": \"1979-01-13T18:25:21.701Z\",\n      \"revisedDate\": \"1981-02-06T02:43:04.045Z\",\n      \"isUpdate\": false,\n      \"categories\": [\n        \"security\",\n        \"economy\"\n      ],\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5fe70df-c07b-46db-83d8-ecaa840648a3",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tickers\": [\n    \"AAPL\",\n    \"NVDA\"\n  ],\n  \"from\": \"2024-01-01\",\n  \"pageSize\": 20,\n  \"includeContent\": true,\n  \"includeEntities\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26f1cf0c-0863-4e0a-9c8b-107255e8e7b4",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tickers\": [\n    \"AAPL\",\n    \"NVDA\"\n  ],\n  \"from\": \"2024-01-01\",\n  \"pageSize\": 20,\n  \"includeContent\": true,\n  \"includeEntities\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14b32f73-64cc-4a6d-a43b-94530c07b463",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tickers\": [\n    \"AAPL\",\n    \"NVDA\"\n  ],\n  \"from\": \"2024-01-01\",\n  \"pageSize\": 20,\n  \"includeContent\": true,\n  \"includeEntities\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c43d290-054f-4a84-8f5f-92f6eb9e80b2",
+          "name": "Get Article by URL",
+          "request": {
+            "name": "Get Article by URL",
+            "description": {
+              "content": "Retrieve a single financial news article by its original URL. Returns full article metadata including sentiment analysis and company entity tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "articles",
+                "by-link"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "link",
+                  "value": "<uri>",
+                  "description": "(Required) The full URL of the article to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeContent",
+                  "value": "<boolean>",
+                  "description": "Whether to include full article content in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeEntities",
+                  "value": "<boolean>",
+                  "description": "Whether to include tagged company entity data"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd16b789-4209-4785-8c4b-3f1cc789c044",
+              "name": "The requested article",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles",
+                    "by-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "link",
+                      "value": "https://example.com/news/apple-earnings-beat"
+                    },
+                    {
+                      "key": "includeContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeEntities",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"link\": \"https://iQojVoinfjANFUdQaDXARvWcsbh.uwfArjBZMt\",\n  \"title\": \"string\",\n  \"publishDate\": \"1990-08-27T05:57:37.599Z\",\n  \"source\": \"string\",\n  \"language\": \"en\",\n  \"sentiment\": \"negative\",\n  \"confidence\": 0.6527968189960058,\n  \"summary\": \"string\",\n  \"images\": [\n    \"https://YtTtAzuNnQid.rbkrgMabR,0doovAp1eC+WonG,5DP90Ej.h0lXxJv\",\n    \"https://hkoVnBZxzUmhtrGRkqogQSEstUDdKMs.vaU4yr7EBRic7t2SfZjJC\"\n  ],\n  \"content\": \"string\",\n  \"companies\": [\n    {\n      \"companyId\": 126,\n      \"name\": \"string\",\n      \"ticker\": \"AAPL\",\n      \"confidence\": 0.08271353787956082,\n      \"country\": \"string\",\n      \"exchange\": \"string\",\n      \"industry\": \"string\",\n      \"sector\": \"string\",\n      \"isin\": \"US0378331005\",\n      \"openfigi\": \"string\",\n      \"primaryListing\": {\n        \"ticker\": \"AAPL\",\n        \"exchangeCode\": \"XNAS\",\n        \"exchangeCountry\": \"US\"\n      },\n      \"isins\": [\n        \"string\",\n        \"string\"\n      ],\n      \"otherListings\": [\n        {\n          \"ticker\": \"AAPL\",\n          \"exchangeCode\": \"XNAS\",\n          \"exchangeCountry\": \"US\"\n        },\n        {\n          \"ticker\": \"AAPL\",\n          \"exchangeCode\": \"XNAS\",\n          \"exchangeCountry\": \"US\"\n        }\n      ]\n    },\n    {\n      \"companyId\": 6368,\n      \"name\": \"string\",\n      \"ticker\": \"AAPL\",\n      \"confidence\": 0.9909167214791689,\n      \"country\": \"string\",\n      \"exchange\": \"string\",\n      \"industry\": \"string\",\n      \"sector\": \"string\",\n      \"isin\": \"US0378331005\",\n      \"openfigi\": \"string\",\n      \"primaryListing\": {\n        \"ticker\": \"AAPL\",\n        \"exchangeCode\": \"XNAS\",\n        \"exchangeCountry\": \"US\"\n      },\n      \"isins\": [\n        \"string\",\n        \"string\"\n      ],\n      \"otherListings\": [\n        {\n          \"ticker\": \"AAPL\",\n          \"exchangeCode\": \"XNAS\",\n          \"exchangeCountry\": \"US\"\n        },\n        {\n          \"ticker\": \"AAPL\",\n          \"exchangeCode\": \"XNAS\",\n          \"exchangeCountry\": \"US\"\n        }\n      ]\n    }\n  ],\n  \"createdAt\": \"2005-02-12T13:17:05.667Z\",\n  \"revisedDate\": \"1966-06-17T21:02:37.741Z\",\n  \"isUpdate\": true,\n  \"categories\": [\n    \"economy\",\n    \"energy\"\n  ],\n  \"countries\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8c0f139-5e6b-4b95-89b3-f6579b0bb527",
+              "name": "Invalid or missing link parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles",
+                    "by-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "link",
+                      "value": "https://example.com/news/apple-earnings-beat"
+                    },
+                    {
+                      "key": "includeContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeEntities",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c8b01be-9ffb-40a7-9011-ab8f48c7732e",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles",
+                    "by-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "link",
+                      "value": "https://example.com/news/apple-earnings-beat"
+                    },
+                    {
+                      "key": "includeContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeEntities",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9114d5b-c6b2-4530-8972-f52da076b3da",
+              "name": "Article not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "articles",
+                    "by-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "link",
+                      "value": "https://example.com/news/apple-earnings-beat"
+                    },
+                    {
+                      "key": "includeContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeEntities",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 3998\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.finlight.me",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b6273f04-1404-47ba-8a9c-d64b6fe8a661",
+    "name": "Finlight Financial News Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time financial news API aggregating market-moving news, earnings reports, analyst upgrades, and corporate announcements for equities, currencies, and commodities. Delivers AI-driven sentiment analysis, entity extraction, and sub-second latency streaming.\n\nContact Support:\n Name: Finlight Support\n Email: info@finlight.me",
+      "type": "text/plain"
+    }
+  }
+}

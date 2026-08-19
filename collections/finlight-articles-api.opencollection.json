@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finlight Financial News Articles API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Financial News Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.finlight.me/v2/articles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve financial news articles with advanced filtering by tickers, sources, dates, countries, categories, and custom queries. Supports boolean query language with field filters. Returns paginated results with sentiment scores, entity tags, and article metadata."
+        },
+        {
+          "info": {
+            "name": "Get Article by URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finlight.me/v2/articles/by-link",
+            "params": [
+              {
+                "name": "link",
+                "value": "https://example.com/news/apple-earnings-beat",
+                "type": "query",
+                "description": "The full URL of the article to retrieve"
+              },
+              {
+                "name": "includeContent",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include full article content in the response"
+              },
+              {
+                "name": "includeEntities",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include tagged company entity data"
+              }
+            ]
+          },
+          "docs": "Retrieve a single financial news article by its original URL. Returns full article metadata including sentiment analysis and company entity tags."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "2862f2c2-e226-45ca-a3fc-c4dee8986557",
+      "name": "Sources",
+      "description": {
+        "content": "Available news sources and their configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4f94309-dd14-48cf-819e-f333247b1b21",
+          "name": "List Available News Sources",
+          "request": {
+            "name": "List Available News Sources",
+            "description": {
+              "content": "Retrieve all available news sources with metadata including domain, content availability, and whether the source is included in the default source set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "646bbd8e-43ba-418c-9fd8-bde88d89451e",
+              "name": "Array of available news sources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"domain\": \"reuters.com\",\n    \"isContentAvailable\": false,\n    \"isDefaultSource\": false\n  },\n  {\n    \"domain\": \"reuters.com\",\n    \"isContentAvailable\": true,\n    \"isDefaultSource\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2307199-9608-4639-90d0-b3d35e8b4732",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"error\": \"string\",\n  \"statusCode\": 803\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.finlight.me",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0395288a-15d0-4d4a-b411-8024143a2a88",
+    "name": "Finlight Financial News Articles Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time financial news API aggregating market-moving news, earnings reports, analyst upgrades, and corporate announcements for equities, currencies, and commodities. Delivers AI-driven sentiment analysis, entity extraction, and sub-second latency streaming.\n\nContact Support:\n Name: Finlight Support\n Email: info@finlight.me",
+      "type": "text/plain"
+    }
+  }
+}
