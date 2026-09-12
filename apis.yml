@@ -102,6 +102,8 @@ apis:
   - type: x-pypi
     url: https://pypi.org/project/finlight-client/
 common:
+  - type: Website
+    url: https://www.finlight.me/
   - type: AgenticAccess
     url: agentic-access/finlight-agentic-access.yml
   - type: DomainSecurity
