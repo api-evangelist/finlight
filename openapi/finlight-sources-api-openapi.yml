@@ -43,19 +43,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: API error response
-      properties:
-        message:
-          type: string
-          description: Human-readable error description
-        error:
-          type: string
-          description: Error type or code
-        statusCode:
-          type: integer
-          description: HTTP status code
     Source:
       type: object
       description: A financial news source available in the Finlight platform
@@ -74,6 +61,19 @@ components:
         isDefaultSource:
           type: boolean
           description: Whether this source is included in the default source set when no sources are specified
+    ErrorResponse:
+      type: object
+      description: API error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error description
+        error:
+          type: string
+          description: Error type or code
+        statusCode:
+          type: integer
+          description: HTTP status code
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

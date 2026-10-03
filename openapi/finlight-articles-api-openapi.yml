@@ -130,182 +130,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    GetArticleApiResponse:
-      type: object
-      description: Paginated response containing financial news articles
-      required:
-      - status
-      - page
-      - pageSize
-      - articles
-      properties:
-        status:
-          type: string
-          description: Response status indicator
-          example: ok
-        page:
-          type: integer
-          description: Current page number
-        pageSize:
-          type: integer
-          description: Number of articles per page
-        articles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Article'
-          description: Array of financial news articles
-    ArticleCategory:
-      type: string
-      description: Content category for financial news articles
-      enum:
-      - markets
-      - economy
-      - business
-      - politics
-      - geopolitics
-      - regulation
-      - technology
-      - energy
-      - commodities
-      - crypto
-      - health
-      - climate
-      - security
-    Company:
-      type: object
-      description: A company entity extracted and tagged from a financial news article
-      required:
-      - companyId
-      - name
-      - ticker
-      properties:
-        companyId:
-          type: integer
-          description: Finlight internal company identifier
-        confidence:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 1
-          description: Confidence score for entity extraction (0.0 to 1.0)
-        country:
-          type: string
-          description: ISO 3166-1 alpha-2 country code of the company
-        exchange:
-          type: string
-          description: Primary exchange where the company is listed
-        industry:
-          type: string
-          description: Industry classification of the company
-        sector:
-          type: string
-          description: Sector classification of the company
-        name:
-          type: string
-          description: Company name
-        ticker:
-          type: string
-          description: Primary stock ticker symbol
-          example: AAPL
-        isin:
-          type: string
-          description: International Securities Identification Number
-          example: US0378331005
-        openfigi:
-          type: string
-          description: OpenFIGI identifier
-        primaryListing:
-          $ref: '#/components/schemas/Listing'
-        isins:
-          type: array
-          items:
-            type: string
-          description: All ISIN identifiers associated with the company
-        otherListings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Listing'
-          description: Other exchange listings for the company
-    Article:
-      type: object
-      description: A financial news article enriched with sentiment analysis and company entity tags
-      required:
-      - link
-      - title
-      - publishDate
-      - source
-      - language
-      properties:
-        link:
-          type: string
-          format: uri
-          description: Original URL of the article
-        title:
-          type: string
-          description: Article headline
-        publishDate:
-          type: string
-          format: date-time
-          description: Date and time when the article was published
-        source:
-          type: string
-          description: Domain of the news source
-        language:
-          type: string
-          description: ISO 639-1 language code of the article
-          example: en
-        sentiment:
-          type: string
-          description: AI-generated sentiment classification
-          enum:
-          - positive
-          - negative
-          - neutral
-        confidence:
-          type: number
-          format: float
-          minimum: 0
-          maximum: 1
-          description: Confidence score for the sentiment classification (0.0 to 1.0)
-        summary:
-          type: string
-          description: AI-generated article summary
-        images:
-          type: array
-          items:
-            type: string
-            format: uri
-          description: URLs of images associated with the article
-        content:
-          type: string
-          description: Full article content (available when includeContent is true)
-        companies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-          description: Companies mentioned and tagged in the article (available when includeEntities is true)
-        createdAt:
-          type: string
-          format: date-time
-          description: Timestamp when the article was ingested by Finlight
-        revisedDate:
-          type: string
-          format: date-time
-          description: Timestamp when the article was last revised
-        isUpdate:
-          type: boolean
-          description: Whether this article is an update to a previously published piece
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArticleCategory'
-          description: Content categories assigned to the article
-        countries:
-          type: array
-          items:
-            type: string
-            description: ISO 3166-1 alpha-2 country code
-          description: Countries relevant to the article
     GetArticlesParams:
       type: object
       description: Parameters for searching financial news articles
@@ -403,6 +227,78 @@ components:
           items:
             $ref: '#/components/schemas/ArticleCategory'
           description: Filter by article content categories
+    Company:
+      type: object
+      description: A company entity extracted and tagged from a financial news article
+      required:
+      - companyId
+      - name
+      - ticker
+      properties:
+        companyId:
+          type: integer
+          description: Finlight internal company identifier
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Confidence score for entity extraction (0.0 to 1.0)
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code of the company
+        exchange:
+          type: string
+          description: Primary exchange where the company is listed
+        industry:
+          type: string
+          description: Industry classification of the company
+        sector:
+          type: string
+          description: Sector classification of the company
+        name:
+          type: string
+          description: Company name
+        ticker:
+          type: string
+          description: Primary stock ticker symbol
+          example: AAPL
+        isin:
+          type: string
+          description: International Securities Identification Number
+          example: US0378331005
+        openfigi:
+          type: string
+          description: OpenFIGI identifier
+        primaryListing:
+          $ref: '#/components/schemas/Listing'
+        isins:
+          type: array
+          items:
+            type: string
+          description: All ISIN identifiers associated with the company
+        otherListings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Listing'
+          description: Other exchange listings for the company
+    ArticleCategory:
+      type: string
+      description: Content category for financial news articles
+      enum:
+      - markets
+      - economy
+      - business
+      - politics
+      - geopolitics
+      - regulation
+      - technology
+      - energy
+      - commodities
+      - crypto
+      - health
+      - climate
+      - security
     Listing:
       type: object
       description: A stock exchange listing for a company
@@ -436,6 +332,110 @@ components:
         statusCode:
           type: integer
           description: HTTP status code
+    GetArticleApiResponse:
+      type: object
+      description: Paginated response containing financial news articles
+      required:
+      - status
+      - page
+      - pageSize
+      - articles
+      properties:
+        status:
+          type: string
+          description: Response status indicator
+          example: ok
+        page:
+          type: integer
+          description: Current page number
+        pageSize:
+          type: integer
+          description: Number of articles per page
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+          description: Array of financial news articles
+    Article:
+      type: object
+      description: A financial news article enriched with sentiment analysis and company entity tags
+      required:
+      - link
+      - title
+      - publishDate
+      - source
+      - language
+      properties:
+        link:
+          type: string
+          format: uri
+          description: Original URL of the article
+        title:
+          type: string
+          description: Article headline
+        publishDate:
+          type: string
+          format: date-time
+          description: Date and time when the article was published
+        source:
+          type: string
+          description: Domain of the news source
+        language:
+          type: string
+          description: ISO 639-1 language code of the article
+          example: en
+        sentiment:
+          type: string
+          description: AI-generated sentiment classification
+          enum:
+          - positive
+          - negative
+          - neutral
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Confidence score for the sentiment classification (0.0 to 1.0)
+        summary:
+          type: string
+          description: AI-generated article summary
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: URLs of images associated with the article
+        content:
+          type: string
+          description: Full article content (available when includeContent is true)
+        companies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+          description: Companies mentioned and tagged in the article (available when includeEntities is true)
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the article was ingested by Finlight
+        revisedDate:
+          type: string
+          format: date-time
+          description: Timestamp when the article was last revised
+        isUpdate:
+          type: boolean
+          description: Whether this article is an update to a previously published piece
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArticleCategory'
+          description: Content categories assigned to the article
+        countries:
+          type: array
+          items:
+            type: string
+            description: ISO 3166-1 alpha-2 country code
+          description: Countries relevant to the article
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
