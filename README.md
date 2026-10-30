@@ -64,50 +64,153 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Finlight is a real-time financial news API that aggregates market-moving news,
-earnings reports, analyst upgrades, and corporate announcements for equities,
-currencies, and commodities. The platform delivers AI-driven sentiment analysis,
-entity extraction, and sub-second latency streaming for developers and enterprises
-building financial applications.
+Finlight is a real-time financial news API that aggregates market-moving news, earnings reports, analyst upgrades, and corporate announcements for equities, currencies, and commodities. The platform delivers AI-driven sentiment analysis, entity extraction, and sub-second latency streaming for developers and enterprises building financial applications.
 
-The API supports REST, WebSocket, and webhook delivery modes, with official SDKs
-for TypeScript/JavaScript and Python. Finlight is trusted by 100+ companies and
-maintains 99.9% uptime with bank-grade security compliance.
+**Areas:** Financial News · Sentiment Analysis · Market Data · Stocks · Currency · Commodities · Real-Time · Webhook · WebSocket
 
-**API Documentation:** https://docs.finlight.me/v2/
-**Website:** https://finlight.me
-**Pricing:** https://finlight.me/pricing
-**Sign Up:** https://app.finlight.me
-**Contact:** info@finlight.me
+## Finlight on APIs.io
 
-## APIs
+Everything profiled for Finlight is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/finlight/](https://apis.io/providers/finlight/)** — or go straight to one of the APIs or properties below.
 
-- [Finlight Financial News API](https://docs.finlight.me/v2/)
+### APIs (2)
 
-## Plans
+- [Finlight Articles API](https://apis.io/apis/finlight/finlight-articles-api/) — Financial news articles with sentiment analysis and entity extraction
+- [Finlight Sources API](https://apis.io/apis/finlight/finlight-sources-api/) — Available news sources and their configuration
 
-See [plans/plans.yml](plans/plans.yml) for full plan details.
+### Published properties
 
-| Plan | Price | Requests/Month |
-|---|---|---|
-| Launchpad | Free | 5,000 |
-| Pro Light | $29/month | 10,000 |
-| Pro Standard | $99/month | 50,000 |
-| Pro Scale | $249/month | 150,000 |
-| Enterprise | Custom | Unlimited |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Rate Limits
+#### MCP servers (1)
 
-See [rate-limits/rate-limits.yml](rate-limits/rate-limits.yml) for full details.
+Model Context Protocol servers that expose the API to agents.
 
-- 100 requests per minute per API key (all plans)
-- Monthly request quotas vary by plan
-- 429 Too Many Requests returned when limits are exceeded
+- [finlight](https://apis.io/servers/finlight/finlight/)
 
-## FinOps
+#### Agentic access (1)
 
-See [finops/finops.yml](finops/finops.yml) for cost optimization guidance.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Maintainers
+- [Finlight Agentic Access](https://apis.io/agentic-access/finlight/finlight-agentic-access/)
 
-- [API Evangelist](https://apievangelist.com)
+#### JSON Schema (5)
+
+The data models the API reads and writes.
+
+- [Article](https://apis.io/schemas/finlight/article/)
+- [ArticleCategory](https://apis.io/schemas/finlight/article-category/)
+- [Company](https://apis.io/schemas/finlight/company/)
+- [Listing](https://apis.io/schemas/finlight/listing/)
+- [Source](https://apis.io/schemas/finlight/source/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Get Article By Link Response](https://apis.io/examples/finlight/get-article-by-link-response/)
+- [List Sources Response](https://apis.io/examples/finlight/list-sources-response/)
+- [Search Articles Request](https://apis.io/examples/finlight/search-articles-request/)
+- [Search Articles Response](https://apis.io/examples/finlight/search-articles-response/)
+- [Webhook Payload](https://apis.io/examples/finlight/webhook-payload/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Finlight Financial News Articles API](https://apis.io/collections/finlight/open-finlight-articles-api/)
+- [Finlight Financial News Articles Sources API](https://apis.io/collections/finlight/open-finlight-sources-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Finlight — jsonschema rules](https://apis.io/rules/finlight/finlight-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Finlight Authentication](https://apis.io/security/finlight/finlight-authentication/)
+- [Finlight Domain Security](https://apis.io/security/finlight/finlight-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/finlight/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/finlight/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/finlight/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.finlight.me/)
+- [Documentation](https://docs.finlight.me/v2/)
+- [Pricing](https://finlight.me/pricing)
+- [Blog](https://finlight.me/blog/feed.xml)
+
+## API Evangelist rating
+
+**Kin Score 32.6** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 53.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 31.6 |
+
+**Agent readiness 40.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/finlight/](https://apis.io/providers/finlight/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Finlight: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/finlight/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
